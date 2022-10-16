@@ -17,9 +17,9 @@ import java.util.List;
 @RequestMapping("/api/books")
 public class BooksController {
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
+    @Autowired
     public BooksController(BookService bookService) {
         this.bookService = bookService;
     }

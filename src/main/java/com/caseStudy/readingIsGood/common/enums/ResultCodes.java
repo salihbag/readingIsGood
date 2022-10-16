@@ -11,16 +11,18 @@ public enum ResultCodes {
 
     BOOK_ADDED("BS100"),
     BOOK_STOCK_UPDATED("BS101"),
-    BOOK_NOT_EXISTS("BE102"),
-    BOOK_EXISTS("BE103"),
-    BOOK_STOCK_ERROR("BE104"),
+    BOOK_NOT_EXISTS("BE100"),
+    BOOK_EXISTS("BE101"),
+    BOOK_STOCK_ERROR("BE102"),
 
     CUSTOMER_ADDED("CS100"),
-    EMAIL_EXISTS("CE101"),
+    EMAIL_EXISTS("CE100"),
+    CUSTOMER_NOT_EXISTS("CE101"),
 
-    ORDER_CREATED("OS100");
+    ORDER_CREATED("OS100"),
+    ORDER_NOT_EXISTS("OE100");
 
-    private String code;
+    private final String code;
 
 
 }

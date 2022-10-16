@@ -32,7 +32,7 @@ public class Order {
         private Customer customer;
 
         @Column(name = "totalPrice")
-        private double price;
+        private double totalPrice;
 
         @Column(name = "totalBookCount")
         private int totalBookCount;
