@@ -13,11 +13,14 @@ public enum ResultCodes {
     BOOK_STOCK_UPDATED("BS101"),
     BOOK_NOT_EXISTS("BE102"),
     BOOK_EXISTS("BE103"),
+    BOOK_STOCK_ERROR("BE104"),
 
     CUSTOMER_ADDED("CS100"),
-    EMAIL_EXISTS("CE101");
+    EMAIL_EXISTS("CE101"),
 
-   private String code;
+    ORDER_CREATED("OS100");
+
+    private String code;
 
 
 }

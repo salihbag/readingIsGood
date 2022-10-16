@@ -42,7 +42,7 @@ public class Book {
         private String author;
 
         @OneToMany(mappedBy = "book")
-        private List<Order> orders;
+        private List<BookOrderRelation> bookOrderRelationList;
 
 
 }

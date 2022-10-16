@@ -37,6 +37,13 @@ public class BookServiceImpl extends BaseService implements BookService {
         return new SuccessDataResult<>(booksResponseList);
     }
 
+
+    @Override
+    public DataResult<GetAllBooksResponse> getBookById(int id) {
+        GetAllBooksResponse book = forResponseMap(bookRepository.findById(id), GetAllBooksResponse.class);
+        return new SuccessDataResult<>(book);
+    }
+
     @Override
     public Result add(CreateBookRequest createBookRequest) {
         checkIfBookExistsByName(createBookRequest.getName());
@@ -55,7 +62,11 @@ public class BookServiceImpl extends BaseService implements BookService {
     }
 
     private Book checkIfBookNotExistsById(int id) {
-        return this.bookRepository.findById(id).orElseThrow(()-> new BusinessException(ResultCodes.BOOK_NOT_EXISTS.getCode()));
+        Book existedBook = this.bookRepository.findById(id);
+        if(existedBook == null){
+            throw new BusinessException(ResultCodes.BOOK_NOT_EXISTS.getCode());
+        }
+        return existedBook;
     }
 
     private void checkIfBookExistsByName(String name) {

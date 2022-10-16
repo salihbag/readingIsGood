@@ -11,6 +11,7 @@ import java.util.List;
 public interface BookService {
 
     DataResult<List<GetAllBooksResponse>> getActiveBooks();
+    DataResult<GetAllBooksResponse> getBookById(int id);
     Result add(CreateBookRequest createBookRequest);
     Result updateStock(UpdateBookStockRequest updateBookStockRequest);
 }
