@@ -23,9 +23,11 @@ import com.caseStudy.readingIsGood.domain.entities.Order;
 import com.caseStudy.readingIsGood.domain.repositories.BookOrderRelationRepository;
 import com.caseStudy.readingIsGood.domain.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -68,9 +70,9 @@ public class OrderServiceImpl extends BaseService implements OrderService {
     }
 
     @Override
-    public List<Order> getOrdersByCustomerId(int customerId) {
+    public List<Order> getOrdersByCustomerId(int customerId, Pageable pageable) {
 
-        List<Order> orderList = this.orderRepository.findByCustomerId(customerId);
+        List<Order> orderList = this.orderRepository.findByCustomerId(customerId, pageable);
 
         if(orderList.isEmpty()){
             throw new BusinessException(ResultCodes.ORDER_NOT_EXISTS.getCode());
@@ -84,8 +86,15 @@ public class OrderServiceImpl extends BaseService implements OrderService {
         return new SuccessDataResult<>(orderList);
     }
 
-    private Double calculateTotalPrice(CreateOrderRequest createOrderRequest) {
-        Double totalPrice = Double.valueOf(0);
+    @Override
+    public DataResult<List<GetAllOrdersResponse>> getAllOrdersBetweenDates(LocalDateTime startDate, LocalDateTime endDate) {
+        List<GetAllOrdersResponse> orderList = forResponseMapList(this.orderRepository.
+                findByCreatedDateBetween(startDate,endDate), GetAllOrdersResponse.class);
+        return new SuccessDataResult<>(orderList);
+    }
+
+    private double calculateTotalPrice(CreateOrderRequest createOrderRequest) {
+        double totalPrice = 0;
         for (int bookId : createOrderRequest.getBookIdList()) {
             Book book = getBook(bookId);
             totalPrice = totalPrice + book.getPrice();

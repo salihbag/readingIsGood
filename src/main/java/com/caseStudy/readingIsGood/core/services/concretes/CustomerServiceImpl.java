@@ -19,6 +19,7 @@ import com.caseStudy.readingIsGood.domain.entities.Customer;
 import com.caseStudy.readingIsGood.domain.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,8 +57,8 @@ public class CustomerServiceImpl extends BaseService implements CustomerService 
     }
 
     @Override
-    public DataResult<List<GetAllOrdersResponse>> getAllOrders(int customerId) {
-        List<GetAllOrdersResponse> orderList = forResponseMapList(this.orderService.getOrdersByCustomerId(customerId), GetAllOrdersResponse.class);
+    public DataResult<List<GetAllOrdersResponse>> getAllOrdersByCustomerId(int customerId, Pageable pageable) {
+        List<GetAllOrdersResponse> orderList = forResponseMapList(this.orderService.getOrdersByCustomerId(customerId, pageable), GetAllOrdersResponse.class);
         return new SuccessDataResult<>(orderList);
     }
 

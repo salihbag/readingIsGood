@@ -6,6 +6,8 @@ import com.caseStudy.readingIsGood.core.requests.create.CreateCustomerRequest;
 import com.caseStudy.readingIsGood.core.responses.GetAllOrdersResponse;
 import com.caseStudy.readingIsGood.core.services.abstracts.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +31,8 @@ public class CustomersController {
     }
 
     @GetMapping("/{id}/orders")
-    public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrders(@PathVariable int id){
-        return ResponseEntity.ok(this.customerService.getAllOrders(id));
+    public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrders(@PathVariable int id, @PageableDefault(value = 2, page = 0) Pageable pageable){
+        return ResponseEntity.ok(this.customerService.getAllOrdersByCustomerId(id, pageable));
     }
 
 

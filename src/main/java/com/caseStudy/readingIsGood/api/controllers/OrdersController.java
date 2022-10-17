@@ -6,10 +6,12 @@ import com.caseStudy.readingIsGood.core.requests.create.CreateOrderRequest;
 import com.caseStudy.readingIsGood.core.responses.GetAllOrdersResponse;
 import com.caseStudy.readingIsGood.core.services.abstracts.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,14 @@ public class OrdersController {
     @GetMapping("/{id}/orders")
     public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrders(@PathVariable int id){
         return ResponseEntity.ok(this.orderService.getAllOrders(id));
+    }
+
+    @GetMapping("/{startDate}/{endDate}/orders")
+    public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrders(@PathVariable(value = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime fromDate,
+                                                                               @PathVariable(value = "endDate")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime toDate){
+        return ResponseEntity.ok(this.orderService.getAllOrdersBetweenDates(fromDate, toDate));
+
+
     }
 
 }

@@ -6,6 +6,7 @@ import com.caseStudy.readingIsGood.common.utilities.results.SuccessDataResult;
 import com.caseStudy.readingIsGood.core.requests.create.CreateCustomerRequest;
 import com.caseStudy.readingIsGood.core.responses.GetAllCustomersResponse;
 import com.caseStudy.readingIsGood.core.responses.GetAllOrdersResponse;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface CustomerService {
 
     Result add(CreateCustomerRequest createCustomerRequest);
     SuccessDataResult<GetAllCustomersResponse> getCustomerById(int id);
-    DataResult<List<GetAllOrdersResponse>> getAllOrders(int customerId);
+    DataResult<List<GetAllOrdersResponse>> getAllOrdersByCustomerId(int customerId, Pageable pageable);
 }
