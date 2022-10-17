@@ -1,5 +1,8 @@
 package com.caseStudy.readingIsGood.common.utilities.results;
 
+import lombok.Setter;
+
+@Setter
 public class DataResult<T> extends Result{
 
     private T data;
