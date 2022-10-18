@@ -122,8 +122,6 @@ readingIsGood/
 
 ### **How To Set Up**
 
-#### **Via IDE**
-
 * Create a Database named `casestudydb` in pgAdmin.
 
 * Import code in any IDE of choice.
