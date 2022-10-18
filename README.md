@@ -41,20 +41,21 @@ readingIsGood/
  │       │   │    ├── BusinessException.java
  │       │   │    └── GlobalExceptionHandler.java
  │       │   │ 
- │       │   ├── utilities
- │       │   │    ├── mapping
- │       │   │    │    ├── ModelMapperService.java
- │       │   │    │    └── ModelMapperServiceImpl.java
- │       │   │    │
- │       │   │    ├── results
- │       │   │    │    ├── DataResult.java
- │       │   │    │    ├── ErrorDataResult.java
- │       │   │    │    ├── ErrorResult.java
- │       │   │    │    ├── Result.java
- │       │   │    │    ├── SuccessDataResult.java
- │       │   │    │    └── SuccessResult.java
- │       │   │    │
- │       │   │    └── AppUtils.java
+ │       │   └── utilities
+ │       │        ├── mapping
+ │       │        │    ├── ModelMapperService.java
+ │       │        │    └── ModelMapperServiceImpl.java
+ │       │        │
+ │       │        ├── results
+ │       │        │    ├── DataResult.java
+ │       │        │    ├── ErrorDataResult.java
+ │       │        │    ├── ErrorResult.java
+ │       │        │    ├── Result.java
+ │       │        │    ├── SuccessDataResult.java
+ │       │        │    └── SuccessResult.java
+ │       │        │
+ │       │        └── AppUtils.java
+ │       │        
  │       ├── config
  │       │   ├── JwtAuthenticationEntryPoint.java
  │       │   ├── JwtRequestFilter.java
@@ -80,22 +81,21 @@ readingIsGood/
  │       │   │    ├── GetAllStatisticsResponse.java
  │       │   │    └── JwtResponse.java
  │       │   │ 
- │       │   ├── services
- │       │   │    ├── abstracts
- │       │   │    │    ├── BaseService.java
- │       │   │    │    ├── BookService.java
- │       │   │    │    ├── CustomerService.java
- │       │   │    │    ├── OrderService.java
- │       │   │    │    └── StatisticService.java
- │       │   │    │
- │       │   │    └── concretes
- │       │   │         ├── BookServiceImpl.java
- │       │   │         ├── CustomerServiceImpl.java
- │       │   │         ├── JwtUserDetailsService.java
- │       │   │         ├── OrderServiceImpl.java
- │       │   │         └── StatisticServiceImpl.java
- │       │   │    
- │       │   │    
+ │       │   └── services
+ │       │        ├── abstracts
+ │       │        │    ├── BaseService.java
+ │       │        │    ├── BookService.java
+ │       │        │    ├── CustomerService.java
+ │       │        │    ├── OrderService.java
+ │       │        │    └── StatisticService.java
+ │       │        │
+ │       │        └── concretes
+ │       │             ├── BookServiceImpl.java
+ │       │             ├── CustomerServiceImpl.java
+ │       │             ├── JwtUserDetailsService.java
+ │       │             ├── OrderServiceImpl.java
+ │       │             └── StatisticServiceImpl.java 
+ │       │        
  │       ├── domain
  │       │   ├── entities
  │       │   │    ├── Book.java
