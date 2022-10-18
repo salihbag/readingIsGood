@@ -20,7 +20,9 @@ public enum ResultCodes {
     CUSTOMER_NOT_EXISTS("CE101"),
 
     ORDER_CREATED("OS100"),
-    ORDER_NOT_EXISTS("OE100");
+    ORDER_NOT_EXISTS("OE100"),
+
+    USER_NOT_FOUND("AE100");
 
     private final String code;
 
