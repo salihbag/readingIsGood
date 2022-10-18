@@ -18,7 +18,7 @@ vision operations.
 
 -------------------------------------
 
-### **File Structure **
+### **File Structure**
 
 ```
 readingIsGood/
