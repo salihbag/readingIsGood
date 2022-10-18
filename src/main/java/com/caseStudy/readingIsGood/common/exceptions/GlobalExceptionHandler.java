@@ -18,21 +18,19 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     @ResponseStatus(code= HttpStatus.BAD_REQUEST)
     public ErrorDataResult<Object> handleValidationExceptions(MethodArgumentNotValidException methodArgumentNotValidException){
-        Map<String, String> validationErrors = new HashMap<String, String>();
+        Map<String, String> validationErrors = new HashMap<>();
 
         for (FieldError fieldError : methodArgumentNotValidException.getBindingResult().getFieldErrors()) {
             validationErrors.put(fieldError.getField(), fieldError.getDefaultMessage());
 
         }
-        ErrorDataResult<Object> errorDataResult = new ErrorDataResult<Object>(validationErrors, "VALIDATION.ERROR");
-        return errorDataResult;
+        return new ErrorDataResult<>(validationErrors, "VALIDATION.ERROR");
     }
 
     @ExceptionHandler
     @ResponseStatus(code=HttpStatus.BAD_REQUEST)
     public ErrorDataResult<Object> handleBusinessExceptions(BusinessException businessException){
-        ErrorDataResult<Object> errorDataResult = new ErrorDataResult<Object>(businessException.getMessage(), "BUSINESS.ERROR");
-        return errorDataResult;
+        return new ErrorDataResult<>(businessException.getMessage(), "BUSINESS.ERROR");
     }
 
 }

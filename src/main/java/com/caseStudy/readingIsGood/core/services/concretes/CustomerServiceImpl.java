@@ -62,7 +62,6 @@ public class CustomerServiceImpl extends BaseService implements CustomerService 
         return new SuccessDataResult<>(orderList);
     }
 
-
     private void checkIfCustomerExistsByEmail(String email) {
         Customer existedCustomer = this.customerRepository.findByEmail(email);
         if(existedCustomer != null){

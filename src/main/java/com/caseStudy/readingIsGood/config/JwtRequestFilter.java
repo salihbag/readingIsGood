@@ -1,7 +1,10 @@
 package com.caseStudy.readingIsGood.config;
 
+import com.caseStudy.readingIsGood.common.enums.ResultCodes;
+import com.caseStudy.readingIsGood.common.exceptions.BusinessException;
 import com.caseStudy.readingIsGood.core.services.concretes.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,6 +31,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+
 
         final String requestTokenHeader = request.getHeader("Authorization");
 

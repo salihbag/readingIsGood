@@ -6,7 +6,6 @@ import com.caseStudy.readingIsGood.core.responses.JwtResponse;
 import com.caseStudy.readingIsGood.core.services.concretes.JwtUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;

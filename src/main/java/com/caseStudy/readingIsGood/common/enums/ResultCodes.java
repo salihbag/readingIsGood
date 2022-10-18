@@ -22,7 +22,8 @@ public enum ResultCodes {
     ORDER_CREATED("OS100"),
     ORDER_NOT_EXISTS("OE100"),
 
-    USER_NOT_FOUND("AE100");
+    USER_NOT_FOUND("AE100"),
+    AUTHORIZATION_INVALID("AE101");
 
     private final String code;
 

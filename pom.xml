@@ -14,6 +14,7 @@
 	<name>readingIsGood</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<docker.image.prefix>reading-is-good</docker.image.prefix>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
@@ -121,6 +122,19 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.8</version>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+						<CONFIG_FOLDER>target/classes/docker</CONFIG_FOLDER>
+					</buildArgs>
 				</configuration>
 			</plugin>
 		</plugins>
