@@ -15,8 +15,10 @@ vision operations.
 * Docker
 * Lombok
 * Mockito
+
 -------------------------------------
-# File structure
+
+### **File Structure **
 
 ```
 readingIsGood/
@@ -118,7 +120,7 @@ readingIsGood/
 ```
 -------------------------------------
 
-### **How to set up**
+### **How To Set Up**
 
 #### **Via IDE**
 
