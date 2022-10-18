@@ -36,7 +36,7 @@ public class OrdersController {
     }
 
     @GetMapping("/{startDate}/{endDate}/orders")
-    public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrders(@PathVariable(value = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime fromDate,
+    public ResponseEntity<DataResult<List<GetAllOrdersResponse>>> getAllOrdersByDate(@PathVariable(value = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime fromDate,
                                                                                @PathVariable(value = "endDate")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime toDate){
         return ResponseEntity.ok(this.orderService.getAllOrdersBetweenDates(fromDate, toDate));
 
